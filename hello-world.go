@@ -148,6 +148,13 @@ func main() {
 	user2 := Student{name: "Rahmaap", age: 19, address: "Turi", class: class1}
 
 	println(user2.age, user2.class.name)
+
+	var s1 = studentType{"john wick", 21}
+	s1.sayHello()
+	s1.sayHello1()
+
+	var name = s1.getNameAt(2)
+	fmt.Println("nama panggilan :", name)
 }
 
 func PrintArrayMulti(message string, arr []map[string]any) {
@@ -176,4 +183,21 @@ func calculate(numbers ...int) (avg float64) {
 	avg = float64(total) / float64(len(numbers))
 
 	return
+}
+
+type studentType struct {
+	name  string
+	grade int
+}
+
+func (s studentType) sayHello() string {
+	return s.name
+}
+
+func (s studentType) getNameAt(i int) string {
+	return strings.Split(s.name, " ")[i-1]
+}
+
+func (s studentType) sayHello1() string {
+	return "Rahma"
 }
